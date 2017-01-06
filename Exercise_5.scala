@@ -40,10 +40,10 @@ object Exercise_5 {
   def cubeRoot (a: Double): Double = {
     val tolerance = 0.001
     def isCorrectGuess (guess: Double): Boolean = {
-      if ((guess*guess*guess - a) < tolerance) true else false
+      if (Math.abs(guess*guess*guess - a) < tolerance) true else false
     }
     def averageDamp (f: Double => Double)(y: Double): Double = {
-      (y + f(y)) / 2
+      (y + f(y)) / 2.0
     }
     def fixedPoint (f: Double => Double)(firstGuess: Double): Double = {
       def iterate(guess: Double): Double = {
@@ -74,7 +74,7 @@ object Exercise_5 {
     println(operationInRange(0)(add)(f)(1,5))
     
     
-    println(cubeRoot(2))
+    println(cubeRoot(2.0))
   }
   
 }
